@@ -4,6 +4,7 @@ This repository contains my Attendance_Management_Tool project. I have developed
 IDE used - Visual Studio Code.
 
 
+
    Highlights of the project are:
    1. A fully interactive interface.
    2. A simple navigation bar for the ease of the user.
