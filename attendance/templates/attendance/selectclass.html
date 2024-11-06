@@ -1,0 +1,671 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h3 class="text-center">DAILY ATTENDANCE</h3>
+{% endblock header %}
+
+
+{% block maincenter %}
+<h4 class="text-center"> <u>Select Class</u></h4>
+
+<div>
+  <div class="d-flex justify-content-between bg-dark">
+    
+    
+    <ul class="nav">
+
+        <div class="dropdown" style="margin-right: 15px;">
+
+            <button class="btn btn-secondary bg-dark btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+               BCA
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a onclick="enable()" class="dropdown-item active" href="{% url 'viewbca1subs' %}">1ST YEAR</a></li>
+              <li><a class="dropdown-item" href="{% url 'viewbca2subs' %}">2ND YEAR</a></li>
+              <li><a class="dropdown-item" href="{% url 'viewbca3subs' %}">3RD YEAR</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown" style="margin-right: 15px;">
+            <button class="btn btn-secondary bg-dark btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+               BCOM
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item active" href="{% url 'viewbcom1subs' %}">1ST YEAR</a></li>
+              <li><a class="dropdown-item" href="{% url 'viewbcom2subs' %}">2ND YEAR</a></li>
+              <li><a class="dropdown-item" href="{% url 'viewbcom3subs' %}">3RD YEAR</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown" style="margin-right: 15px;">
+            <button class="btn btn-secondary bg-dark btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+               BA
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item active" href="#">1ST YEAR</a></li>
+              <li><a class="dropdown-item" href="#">2ND YEAR</a></li>
+              <li><a class="dropdown-item" href="#">3RD YEAR</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown" style="margin-right: 15px;">
+            <button class="btn btn-secondary bg-dark btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+               BBA
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item active" href="{% url 'viewbba1subs' %}">1ST YEAR</a></li>
+              <li><a class="dropdown-item" href="{% url 'viewbba2subs' %}">2ND YEAR</a></li>
+              <li><a class="dropdown-item" href="{% url 'viewbba3subs' %}">3RD YEAR</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown" style="margin-right: 15px;">
+            <button class="btn btn-secondary bg-dark btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+               BSC
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark bg-dark">
+              <li><a class="dropdown-item active" href="#">1ST YEAR</a></li>
+              <li><a class="dropdown-item" href="#">2ND YEAR</a></li>
+              <li><a class="dropdown-item" href="#">3RD YEAR</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+          </div>
+      
+
+        
+      </ul>
+
+
+
+
+      <ul class="nav justify-content-end">
+
+
+
+        <li class="nav-item">
+            <a class="nav-link" href="#">Other Dept</a>
+          </li>
+        
+
+      </ul>
+
+
+</div></div>
+
+
+
+
+
+<div style="margin-top: 15px;">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">CLASS</th>
+            <th scope="col">SUBJECTS</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+
+        
+        {% if bca1 %}
+        {% for eachbca1 in bca1|slice:":1" %}
+
+
+        <tbody>
+          <tr>
+            <th scope="row">{{eachbca1.courseandyear}} SEM1</th>
+            <td id="sub1">{{eachbca1.sem1sub1}}</td>
+            <td id="btn1"><a href="{% url 'markclassattendancesub1bca1' %}" class="btn btn-sm btn-outline-success">select</a></td>
+          </tr>
+          <tr>
+            <th scope="row">{{eachbca1.courseandyear}} SEM1</th>
+            <td>{{eachbca1.sem1sub2}}</td>
+            <td><a href="{% url 'markclassattendancesub2bca1'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+          </tr>
+
+          <tr>
+            <th scope="row">{{eachbca1.courseandyear}} SEM1</th>
+            <td>{{eachbca1.sem1sub3}}</td>
+            <td><a href="{% url 'markclassattendancesub3bca1'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+          </tr>
+
+          <tr>
+            <th scope="row">{{eachbca1.courseandyear}} SEM1</th>
+            <td>{{eachbca1.sem1sub4}}</td>
+            <td><a href="{% url 'markclassattendancesub4bca1'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+          </tr>
+
+          <tr>
+            <th scope="row">{{eachbca1.courseandyear}} SEM2</th>
+            <td>{{eachbca1.sem2sub1}}</td>
+            <td><a href="{% url 'markclassattendancesub5bca1'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+          </tr>
+
+          <tr>
+            <th scope="row">{{eachbca1.courseandyear}} SEM2</th>
+            <td>{{eachbca1.sem2sub2}}</td>
+            <td><a href="{% url 'markclassattendancesub6bca1'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+          </tr>
+
+          <tr>
+            <th scope="row">{{eachbca1.courseandyear}} SEM2</th>
+            <td>{{eachbca1.sem2sub3}}</td>
+            <td><a href="{% url 'markclassattendancesub7bca1'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+          </tr>
+
+          <tr>
+            <th scope="row">{{eachbca1.courseandyear}} SEM2</th>
+            <td>{{eachbca1.sem2sub4}}</td>
+            <td><a href="{% url 'markclassattendancesub8bca1'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+          </tr>
+
+
+          <tbody>
+            {% endfor %}
+
+
+
+
+
+
+
+            {% elif bca2 %}
+            {% for eachbca2 in bca2|slice:":1" %}
+            <tbody>
+              <tr>
+                <th scope="row">{{eachbca2.courseandyear}} SEM1</th>
+                <td>{{eachbca2.sem1sub1}}</td>
+                <td><a href="{% url 'markclassattendancesub1bca2'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+    
+              <tr>
+                <th scope="row">{{eachbca2.courseandyear}} SEM1</th>
+                <td>{{eachbca2.sem1sub2}}</td>
+                <td><a href="{% url 'markclassattendancesub2bca2'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+              </tr>
+    
+              <tr>
+                <th scope="row">{{eachbca2.courseandyear}} SEM1</th>
+                <td>{{eachbca2.sem1sub3}}</td>
+                <td><a href="{% url 'markclassattendancesub3bca2'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+              </tr>
+    
+              <tr>
+                <th scope="row">{{eachbca2.courseandyear}} SEM1</th>
+                <td>{{eachbca2.sem1sub4}}</td>
+                <td><a href="{% url 'markclassattendancesub4bca2'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+              </tr>
+    
+              <tr>
+                <th scope="row">{{eachbca2.courseandyear}} SEM2</th>
+                <td>{{eachbca2.sem2sub1}}</td>
+                <td><a href="{% url 'markclassattendancesub5bca2'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+              </tr>
+    
+              <tr>
+                <th scope="row">{{eachbca2.courseandyear}} SEM2</th>
+                <td>{{eachbca2.sem2sub2}}</td>
+                <td><a href="{% url 'markclassattendancesub6bca2'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+              </tr>
+    
+              <tr>
+                <th scope="row">{{eachbca2.courseandyear}} SEM2</th>
+                <td>{{eachbca2.sem2sub3}}</td>
+                <td><a href="{% url 'markclassattendancesub7bca2'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+              </tr>
+    
+              <tr>
+                <th scope="row">{{eachbca2.courseandyear}} SEM2</th>
+                <td>{{eachbca2.sem2sub4}}</td>
+                <td><a href="{% url 'markclassattendancesub8bca2'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+              </tr>
+    
+    
+    
+    
+              <tbody>
+                {% endfor %}
+
+
+
+
+                {% elif bca3 %}
+                {% for onebca3 in bca3|slice:":1" %}
+                <tbody>
+                  <tr>
+                    <th scope="row">{{onebca3.courseandyear}} SEM1</th>
+                    <td>{{onebca3.sem1sub1}}</td>
+                    <td><a href="{% url 'markclassattendancesub1bca3' %}" class="btn btn-sm btn-outline-success">select</a></td>
+        
+                  <tr>
+                    <th scope="row">{{onebca3.courseandyear}} SEM1</th>
+                    <td>{{onebca3.sem1sub2}}</td>
+                    <td><a href="{% url 'markclassattendancesub2bca3' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                  </tr>
+        
+                  <tr>
+                    <th scope="row">{{onebca3.courseandyear}} SEM1</th>
+                    <td>{{onebca3.sem1sub3}}</td>
+                    <td><a href="{% url 'markclassattendancesub3bca3' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                  </tr>
+        
+                  <tr>
+                    <th scope="row">{{onebca3.courseandyear}} SEM1</th>
+                    <td>{{onebca3.sem1sub4}}</td>
+                    <td><a href="{% url 'markclassattendancesub4bca3' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                  </tr>
+        
+                  <tr>
+                    <th scope="row">{{onebca3.courseandyear}} SEM2</th>
+                    <td>{{onebca3.sem2sub1}}</td>
+                    <td><a href="{% url 'markclassattendancesub5bca3' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                  </tr>
+        
+                  <tr>
+                    <th scope="row">{{onebca3.courseandyear}} SEM2</th>
+                    <td>{{onebca3.sem2sub2}}</td>
+                    <td><a href="{% url 'markclassattendancesub6bca3' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                  </tr>
+        
+                  <tr>
+                    <th scope="row">{{onebca3.courseandyear}} SEM2</th>
+                    <td>{{onebca3.sem2sub3}}</td>
+                    <td><a href="{% url 'markclassattendancesub7bca3' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                  </tr>
+        
+                  <tr>
+                    <th scope="row">{{onebca3.courseandyear}} SEM2</th>
+                    <td>{{onebca3.sem2sub4}}</td>
+                    <td><a href="{% url 'markclassattendancesub8bca3' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                  </tr>
+        
+        
+        
+        
+                  <tbody>
+                    {% endfor %}
+
+
+
+
+
+                    {% elif bcom1 %}
+                    {% for onebcom1 in bcom1|slice:":1" %}
+                    <tbody>
+                      <tr>
+                        <th scope="row">{{onebcom1.courseandyear}} SEM1</th>
+                        <td>{{onebcom1.sem1sub1}}</td>
+                        <td><a href="{% url 'markclassattendancesub1bcom1'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+            
+                      <tr>
+                        <th scope="row">{{onebcom1.courseandyear}} SEM1</th>
+                        <td>{{onebcom1.sem1sub2}}</td>
+                        <td><a href="{% url 'markclassattendancesub2bcom1'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                      </tr>
+            
+                      <tr>
+                        <th scope="row">{{onebcom1.courseandyear}} SEM1</th>
+                        <td>{{onebcom1.sem1sub3}}</td>
+                        <td><a href="{% url 'markclassattendancesub3bcom1'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                      </tr>
+            
+                      <tr>
+                        <th scope="row">{{onebcom1.courseandyear}} SEM1</th>
+                        <td>{{onebcom1.sem1sub4}}</td>
+                        <td><a href="{% url 'markclassattendancesub4bcom1'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                      </tr>
+            
+                      <tr>
+                        <th scope="row">{{onebcom1.courseandyear}} SEM2</th>
+                        <td>{{onebcom1.sem2sub1}}</td>
+                        <td><a href="{% url 'markclassattendancesub5bcom1'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                      </tr>
+            
+                      <tr>
+                        <th scope="row">{{onebcom1.courseandyear}} SEM2</th>
+                        <td>{{onebcom1.sem2sub2}}</td>
+                        <td><a href="{% url 'markclassattendancesub6bcom1'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                      </tr>
+            
+                      <tr>
+                        <th scope="row">{{onebcom1.courseandyear}} SEM2</th>
+                        <td>{{onebcom1.sem2sub3}}</td>
+                        <td><a href="{% url 'markclassattendancesub7bcom1'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                      </tr>
+            
+                      <tr>
+                        <th scope="row">{{onebcom1.courseandyear}} SEM2</th>
+                        <td>{{onebcom1.sem2sub4}}</td>
+                        <td><a href="{% url 'markclassattendancesub8bcom1'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                      </tr>
+            
+            
+            
+            
+                      <tbody>
+                        {% endfor %}
+                   
+                        
+
+
+                        {% elif bcom2 %}
+                        {% for onebcom2 in bcom2|slice:":1" %}
+                        <tbody>
+                          <tr>
+                            <th scope="row">{{onebcom2.courseandyear}} SEM1</th>
+                            <td>{{onebcom2.sem1sub1}}</td>
+                            <td><a href="{% url 'markclassattendancesub1bcom2'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                
+                          <tr>
+                            <th scope="row">{{onebcom2.courseandyear}} SEM1</th>
+                            <td>{{onebcom2.sem1sub2}}</td>
+                            <td><a href="{% url 'markclassattendancesub2bcom2'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                          </tr>
+                
+                          <tr>
+                            <th scope="row">{{onebcom2.courseandyear}} SEM1</th>
+                            <td>{{onebcom2.sem1sub3}}</td>
+                            <td><a href="{% url 'markclassattendancesub3bcom2'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                          </tr>
+                
+                          <tr>
+                            <th scope="row">{{onebcom2.courseandyear}} SEM1</th>
+                            <td>{{onebcom2.sem1sub4}}</td>
+                            <td><a href="{% url 'markclassattendancesub4bcom2'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                          </tr>
+                
+                          <tr>
+                            <th scope="row">{{onebcom2.courseandyear}} SEM2</th>
+                            <td>{{onebcom2.sem2sub1}}</td>
+                            <td><a href="{% url 'markclassattendancesub5bcom2'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                          </tr>
+                
+                          <tr>
+                            <th scope="row">{{onebcom2.courseandyear}} SEM2</th>
+                            <td>{{onebcom2.sem2sub2}}</td>
+                            <td><a href="{% url 'markclassattendancesub6bcom2'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                          </tr>
+                
+                          <tr>
+                            <th scope="row">{{onebcom2.courseandyear}} SEM2</th>
+                            <td>{{onebcom2.sem2sub3}}</td>
+                            <td><a href="{% url 'markclassattendancesub7bcom2'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                          </tr>
+                
+                          <tr>
+                            <th scope="row">{{onebcom2.courseandyear}} SEM2</th>
+                            <td>{{onebcom2.sem2sub4}}</td>
+                            <td><a href="{% url 'markclassattendancesub8bcom2'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                          </tr>
+                
+                
+                
+                
+                          <tbody>
+                            {% endfor %}
+                            
+                            
+
+
+
+                            {% elif bcom3 %}
+                            {% for onebcom3 in bcom3|slice:":1" %}
+                            <tbody>
+                              <tr>
+                                <th scope="row">{{onebcom3.courseandyear}} SEM1</th>
+                                <td>{{onebcom3.sem1sub1}}</td>
+                                <td><a href="{% url 'markclassattendancesub1bcom3'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                    
+                              <tr>
+                                <th scope="row">{{onebcom3.courseandyear}} SEM1</th>
+                                <td>{{onebcom3.sem1sub2}}</td>
+                                <td><a href="{% url 'markclassattendancesub2bcom3'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                              </tr>
+                    
+                              <tr>
+                                <th scope="row">{{onebcom3.courseandyear}} SEM1</th>
+                                <td>{{onebcom3.sem1sub3}}</td>
+                                <td><a href="{% url 'markclassattendancesub3bcom3'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                              </tr>
+                    
+                              <tr>
+                                <th scope="row">{{onebcom3.courseandyear}} SEM1</th>
+                                <td>{{onebcom3.sem1sub4}}</td>
+                                <td><a href="{% url 'markclassattendancesub4bcom3'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                              </tr>
+                    
+                              <tr>
+                                <th scope="row">{{onebcom3.courseandyear}} SEM2</th>
+                                <td>{{onebcom3.sem2sub1}}</td>
+                                <td><a href="{% url 'markclassattendancesub5bcom3'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                              </tr>
+                    
+                              <tr>
+                                <th scope="row">{{onebcom3.courseandyear}} SEM2</th>
+                                <td>{{onebcom3.sem2sub2}}</td>
+                                <td><a href="{% url 'markclassattendancesub6bcom3'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                              </tr>
+                    
+                              <tr>
+                                <th scope="row">{{onebcom3.courseandyear}} SEM2</th>
+                                <td>{{onebcom3.sem2sub3}}</td>
+                                <td><a href="{% url 'markclassattendancesub7bcom3'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                              </tr>
+                    
+                              <tr>
+                                <th scope="row">{{onebcom3.courseandyear}} SEM2</th>
+                                <td>{{onebcom3.sem2sub4}}</td>
+                                <td><a href="{% url 'markclassattendancesub8bcom3'  %}" class="btn btn-sm btn-outline-success">select</a></td>
+                              </tr>
+                    
+                    
+                    
+                    
+                              <tbody>
+                                {% endfor %}
+
+
+
+
+                                {% elif bba1 %}
+                                {% for onebba1 in bba1|slice:":1" %}
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">{{onebba1.courseandyear}} SEM1</th>
+                                    <td>{{onebba1.sem1sub1}}</td>
+                                    <td><a href="{% url 'markclassattendancesub1bba1' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                        
+                                  <tr>
+                                    <th scope="row">{{onebba1.courseandyear}} SEM1</th>
+                                    <td>{{onebba1.sem1sub2}}</td>
+                                    <td><a href="{% url 'markclassattendancesub2bba1' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                  </tr>
+                        
+                                  <tr>
+                                    <th scope="row">{{onebba1.courseandyear}} SEM1</th>
+                                    <td>{{onebba1.sem1sub3}}</td>
+                                    <td><a href="{% url 'markclassattendancesub3bba1' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                  </tr>
+                        
+                                  <tr>
+                                    <th scope="row">{{onebba1.courseandyear}} SEM1</th>
+                                    <td>{{onebba1.sem1sub4}}</td>
+                                    <td><a href="{% url 'markclassattendancesub4bba1' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                  </tr>
+                        
+                                  <tr>
+                                    <th scope="row">{{onebba1.courseandyear}} SEM2</th>
+                                    <td>{{onebba1.sem2sub1}}</td>
+                                    <td><a href="{% url 'markclassattendancesub5bba1' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                  </tr>
+                        
+                                  <tr>
+                                    <th scope="row">{{onebba1.courseandyear}} SEM2</th>
+                                    <td>{{onebba1.sem2sub2}}</td>
+                                    <td><a href="{% url 'markclassattendancesub6bba1' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                  </tr>
+                        
+                                  <tr>
+                                    <th scope="row">{{onebba1.courseandyear}} SEM2</th>
+                                    <td>{{onebba1.sem2sub3}}</td>
+                                    <td><a href="{% url 'markclassattendancesub7bba1' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                  </tr>
+                        
+                                  <tr>
+                                    <th scope="row">{{onebba1.courseandyear}} SEM2</th>
+                                    <td>{{onebba1.sem2sub4}}</td>
+                                    <td><a href="{% url 'markclassattendancesub8bba1' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                  </tr>
+                        
+                        
+                        
+                        
+                                  <tbody>
+                                    {% endfor %}
+
+
+
+
+                                    {% elif bba2 %}
+                                    {% for onebba2 in bba2|slice:":1" %}
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row">{{onebba2.courseandyear}} SEM1</th>
+                                        <td>{{onebba2.sem1sub1}}</td>
+                                        <td><a href="{% url 'markclassattendancesub1bba2' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                            
+                                      <tr>
+                                        <th scope="row">{{onebba2.courseandyear}} SEM1</th>
+                                        <td>{{onebba2.sem1sub2}}</td>
+                                        <td><a href="{% url 'markclassattendancesub2bba2' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                      </tr>
+                            
+                                      <tr>
+                                        <th scope="row">{{onebba2.courseandyear}} SEM1</th>
+                                        <td>{{onebba2.sem1sub3}}</td>
+                                        <td><a href="{% url 'markclassattendancesub3bba2' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                      </tr>
+                            
+                                      <tr>
+                                        <th scope="row">{{onebba2.courseandyear}} SEM1</th>
+                                        <td>{{onebba2.sem1sub4}}</td>
+                                        <td><a href="{% url 'markclassattendancesub4bba2' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                      </tr>
+                            
+                                      <tr>
+                                        <th scope="row">{{onebba2.courseandyear}} SEM2</th>
+                                        <td>{{onebba2.sem2sub1}}</td>
+                                        <td><a href="{% url 'markclassattendancesub5bba2' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                      </tr>
+                            
+                                      <tr>
+                                        <th scope="row">{{onebba2.courseandyear}} SEM2</th>
+                                        <td>{{onebba2.sem2sub2}}</td>
+                                        <td><a href="{% url 'markclassattendancesub6bba2' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                      </tr>
+                            
+                                      <tr>
+                                        <th scope="row">{{onebba2.courseandyear}} SEM2</th>
+                                        <td>{{onebba2.sem2sub3}}</td>
+                                        <td><a href="{% url 'markclassattendancesub7bba2' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                      </tr>
+                            
+                                      <tr>
+                                        <th scope="row">{{onebba2.courseandyear}} SEM2</th>
+                                        <td>{{onebba2.sem2sub4}}</td>
+                                        <td><a href="{% url 'markclassattendancesub8bba2' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                      </tr>
+                            
+                            
+                            
+                            
+                                      <tbody>
+                                        {% endfor %}
+
+
+
+
+                                        {% elif bba3 %}
+                                        {% for onebba3 in bba3|slice:":1" %}
+                                        <tbody>
+                                          <tr>
+                                            <th scope="row">{{onebba3.courseandyear}} SEM1</th>
+                                            <td>{{onebba3.sem1sub1}}</td>
+                                            <td><a href="{% url 'markclassattendancesub1bba3' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                
+                                          <tr>
+                                            <th scope="row">{{onebba3.courseandyear}} SEM1</th>
+                                            <td>{{onebba3.sem1sub2}}</td>
+                                            <td><a href="{% url 'markclassattendancesub2bba3' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                          </tr>
+                                
+                                          <tr>
+                                            <th scope="row">{{onebba3.courseandyear}} SEM1</th>
+                                            <td>{{onebba3.sem1sub3}}</td>
+                                            <td><a href="{% url 'markclassattendancesub3bba3' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                          </tr>
+                                
+                                          <tr>
+                                            <th scope="row">{{onebba3.courseandyear}} SEM1</th>
+                                            <td>{{onebba3.sem1sub4}}</td>
+                                            <td><a href="{% url 'markclassattendancesub4bba3' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                          </tr>
+                                
+                                          <tr>
+                                            <th scope="row">{{onebba3.courseandyear}} SEM2</th>
+                                            <td>{{onebba3.sem2sub1}}</td>
+                                            <td><a href="{% url 'markclassattendancesub5bba3' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                          </tr>
+                                
+                                          <tr>
+                                            <th scope="row">{{onebba3.courseandyear}} SEM2</th>
+                                            <td>{{onebba3.sem2sub2}}</td>
+                                            <td><a href="{% url 'markclassattendancesub6bba3' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                          </tr>
+                                
+                                          <tr>
+                                            <th scope="row">{{onebba3.courseandyear}} SEM2</th>
+                                            <td>{{onebba3.sem2sub3}}</td>
+                                            <td><a href="{% url 'markclassattendancesub7bba3' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                          </tr>
+                                
+                                          <tr>
+                                            <th scope="row">{{onebba3.courseandyear}} SEM2</th>
+                                            <td>{{onebba3.sem2sub4}}</td>
+                                            <td><a href="{% url 'markclassattendancesub8bba3' %}" class="btn btn-sm btn-outline-success">select</a></td>
+                                          </tr>
+                                
+                                          <tbody>
+                                            {% endfor %}
+                                            {% endif %}
+
+                                            
+      </table>
+</div>
+
+
+{% if sub %}
+
+<script type="text/javascript">
+  function enable() {
+  var sub1 = document.getElementById("sub1").value;
+
+  if (sub == sub1) {
+    document.getElementById("btn1").disabled = true;
+  }
+  }
+
+</script>
+
+{% endif %}
+
+{% endblock maincenter %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h3 class="text-center">NEW REGISTRATION</h3>
+{% endblock header %}
+
+
+{% block maincenter %}
+
+    <form class="p-5 border" action="/register/" method = "POST">
+      {% csrf_token %}
+      <div class="form-floating mb-3">
+        <input autocomplete="off" type="text" class="form-control" id="floatingInput" placeholder="fullname" name = "fullname" required value="{{singlestudent.fullname}}">
+        <label for="floatingInput">Full Name</label>
+      </div>
+      <p class="text-danger">{{message}}</p>
+      <div class="form-floating mb-3">
+        <input autocomplete="off" type="text" class="form-control" id="floatingInput" placeholder="regnum" name ="regnum" required value="{{singlestudent.regnum}}">
+        <label for="floatingInput">Register No.</label>
+      </div>
+
+      <p class="text-danger">{{message4}}</p>
+
+      <div class="form-floating mb-3">
+        <select class="form-control" name="courseandyear" id="floatingInput" required value="{{singlestudent.courseandyear}}">
+          <option >Course+Year</option>
+          <option value="BCA1">BCA1</option>
+          <option value="BCA2">BCA2</option>
+          <option value="BCA3">BCA3</option>
+          <option value="BCOM1">BCOM1</option>
+          <option value="BCOM2">BCOM2</option>
+          <option value="BCOM3">BCOM3</option>
+          <option value="BBA1">BBA1</option>
+          <option value="BBA2">BBA2</option>
+          <option value="BBA3">BBA3</option>
+        </select>
+      </div>
+
+      <p class="text-danger">{{message2}}</p>
+
+      <div class="form-floating mb-3">
+        <input autocomplete="off" type="text" class="form-control" id="floatingInput" placeholder="Phone" name = "phone" required value="{{singlestudent.phone}}">
+        <label for="floatingInput">Phone</label>
+      </div>
+      <p class="text-danger">{{message3}}</p>
+      <div class="form-floating mb-3">
+        <input autocomplete="off" type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" required value="{{singlestudent.email}}">
+        <label for="floatingInput">Email address</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input autocomplete="off" type="text" class="form-control" id="floatingInput" placeholder="username" name = "username" required value="{{singlestudent.username}}">
+        <label for="floatingInput">Username</label>
+      </div>
+      <div class="form-floating">
+        <input autocomplete="off" type="password" class="form-control" id="floatingPassword" placeholder="Password" name = "password" required value="{{singlestudent.password}}">
+        <label for="floatingPassword">Password</label>
+      </div>
+
+
+      <div class="m-2">
+        <button type="submit" class = "btn btn-success">Register</button>
+      </div>
+    </form>
+        
+    {% endblock maincenter %}

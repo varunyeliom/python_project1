@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h3 class="text-center">ATTENDANCE RECORDS</h3>
+{% endblock header %}
+
+
+{% block maincenter %}
+
+
+
+<div style="margin-top: 50px;">
+  
+    <form  class="input-group mb-3" action="/myrec/" method = "POST">
+      <span class="input-group-text" id="regbox">REGISTER NUMBER</span>
+  
+      {% csrf_token %}
+      <input  type="text" placeholder="eg: 20ABCD2020" class="form-control" aria-label="Sizing example input" name="box"  aria-describedby="inputGroup-sizing-default">
+    
+    <button  type="submit" class="btn btn-outline-dark">SEARCH</button>
+  
+    </form>
+  
+  </div>
+
+
+
+  <div>
+  
+    <div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">DATE</th>
+            <th scope="col">SUBJECT</th>
+            <th scope="col">STATUS</th>
+          </tr>
+        </thead>
+        {% if match1 %}
+        {% for eachmatch1 in match1 %}
+        <tbody>
+            <tr>
+              <th scope="row">{{eachmatch1.copydate}}</th>
+              <td class="text-dark"><b>{{eachmatch1.copysub}}</b></td>
+              <td class="text-dark"><b>{{eachmatch1.copystatus}}</b></td>
+            </tr>
+            <tbody>
+                {% endfor %}
+                {% endif %}
+        </table>
+    </div>
+    
+
+  </div>
+
+
+{% endblock maincenter %}

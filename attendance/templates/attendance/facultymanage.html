@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h3 class="text-center"><b>MANAGE FACULTY</b></h3>
+{% endblock header %}
+
+{% block maincenter %}
+
+<div style="margin-top: 50px;">
+  
+  <form  class="input-group mb-3" action="/facultymanage/" method = "POST">
+    <span class="input-group-text" id="regbox">STAFF ID</span>
+
+    {% csrf_token %}
+    <input  type="text" placeholder="" class="form-control" aria-label="Sizing example input" name="box"  aria-describedby="inputGroup-sizing-default">
+  
+  <button  type="submit" class="btn btn-outline-dark">SEARCH</button>
+  </form>
+
+  
+</div>
+{% if match1 %}
+{% for eachmatch1 in match1 %}
+<div>
+  <div>
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr>
+        <td><u>STAFF ID</u></td>
+          <td><b>{{eachmatch1.id}}</b></td>
+        </tr>
+  
+        <tr>
+          <td><u>STAFF NAME</u></td>
+          <td><b>{{eachmatch1.name}}</b></td>
+        </tr>
+  
+      </tbody>
+      </table>
+  </div>
+
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">PHONE</th>
+          <th scope="col">EMAIL</th>
+          <th scope="col">ASSIGNED SUBJECT</th>
+          <th scope="col">ASSIGNED SUBJECT</th>
+          <th scope="col">ASSIGNED SUBJECT</th>
+          <th scope="col">ASSIGNED SUBJECT</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr>
+          <td>{{eachmatch1.phone}}</td>
+          <td>{{eachmatch1.email}}</td>
+          <td>{{eachmatch1.assignedsub1}}</td>
+          <td>{{eachmatch1.assignedsub2}}</td>
+          <td>{{eachmatch1.assignedsub3}}</td>
+          <td>{{eachmatch1.assignedsub4}}</td>
+          <td><a href="{% url 'facultyupdate' eachmatch1.id %}" class="btn btn-sm btn-outline-success">manage</a></td>
+          <td></td>
+        </tr>
+      </tbody>
+      </table>
+  </div>
+  
+{% endfor %}
+{% endif %}
+
+
+</div>
+
+{% endblock maincenter %}

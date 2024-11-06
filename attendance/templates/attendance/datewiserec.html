@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h3 class="text-center">ATTENDANCE RECORDS</h3>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"        
+integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</script>
+
+{% endblock header %}
+
+
+{% block maincenter %}
+
+<div style="margin-bottom: 40px; margin-top: 20px;">
+    {% include "recnavbar.html" %}
+</div>
+
+
+
+<div>
+  
+    <form  class="input-group mb-3" action="/datewiserec/"  method="POST">
+      <span class="input-group-text" id="regbox">Enter Date</span>
+  
+      {% csrf_token %}
+      <input  type="datetime" placeholder="   dd-mm-yyyy" class="form-control" aria-label="Sizing example input" name="box"  aria-describedby="inputGroup-sizing-default">
+
+      <span style="margin-left: 15px;" class="input-group-text" id="regbox">Course</span>
+      
+      <select class="form-control" name="box2">
+        <option >Course+Year</option>
+        <option value="BCA1">BCA1</option>
+        <option value="BCA2">BCA2</option>
+        <option value="BCA3">BCA3</option>
+        <option value="BCOM1">BCOM1</option>
+        <option value="BCOM2">BCOM2</option>
+        <option value="BCOM3">BCOM3</option>
+        <option value="BBA1">BBA1</option>
+        <option value="BBA2">BBA2</option>
+        <option value="BBA3">BBA3</option>
+      </select>
+
+    
+    <button  type="submit" class="btn btn-outline-dark">SEARCH</button>
+  
+    </form>
+  
+  </div>
+
+
+
+  <div>
+  
+    <div class="table"> 
+      <h3 class="text-dark text-center">DATE-WISE ATTENDANCE</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">DATE</th>
+            <th scope="col">SUBJECT</th>
+            <th scope="col">NAME</th>
+            <th scope="col">STATUS</th>
+          </tr>
+        </thead>
+        {% if match1 %}
+        {% for eachmatch1 in match1 %}
+        <tbody>
+            <tr>
+              <th scope="row">{{eachmatch1.copydate}}</th>
+              <td class="text-dark"><b>{{eachmatch1.copysub}}</b></td>
+              <td class="text-dark"><b>{{eachmatch1.copyname}}</b></td>
+              <td class="text-dark"><b>{{eachmatch1.copystatus}}</b></td>
+            </tr>
+            <tbody>
+                {% endfor %}
+                {% endif %}
+        </table>
+    </div>
+    
+
+      <button class="btn download text-light" style="background-color: rgba(72, 112, 104, 0.922);">save as .pdf</button>
+      
+      <button class="btn text-light" style="background-color: rgba(72, 112, 104, 0.922);"><a class="text-light" href="{% url 'datewiseexcel' %}">open in excel</a></button>
+    </div>
+
+  <script>
+    let table = document.querySelector(".table");
+    let btn   = document.querySelector(".download");
+    btn.addEventListener('click', () => {
+        html2pdf().from(table).save()
+    })
+  </script>
+
+{% endblock maincenter %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block header %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"        
+integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</script>
+{% endblock header %}
+
+
+{% block maincenter %}
+<button class="btn download text-light" style="margin-left: 880px; margin-top: 20px; background-color: rgba(72, 112, 104, 0.922);">save as .pdf</button>
+<button class="btn text-light" style="margin-top: 20px; background-color: rgba(72, 112, 104, 0.922);"><a class="text-light" href="{% url 'studentdbexcel' %}">open in excel</a></button>
+<div class="table"> 
+  <h3 class="text-dark text-center">STUDENT DATABASE</h3>
+<table class="table" style="margin-top: 50px;">
+  <thead>
+    <tr>
+      <th scope="col">FULLNAME</th>
+      <th scope="col">REGISTER NO.</th>
+      <th scope="col">COURSE&YEAR</th>
+      <th scope="col">PHONE</th>
+      <th scope="col">EMAIL</th>
+    </tr>
+  </thead>
+  {% if allstudents %}
+  {% for eachstudent in allstudents %}
+  <tbody>
+    <tr>
+      <td>{{eachstudent.fullname}}</td>
+      <td>{{eachstudent.regnum}}</td>
+      <td>{{eachstudent.courseandyear}}</td>
+      <td>{{eachstudent.phone}}</td>
+      <td>{{eachstudent.email}}</td>
+      <td><a href="{% url 'updateattendance' eachstudent.id %}" class="btn btn-sm btn-outline-success">edit</a></td>
+      <td><a href="{% url 'deletestudent' eachstudent.id %}" class="btn btn-sm btn-danger">delete</a></td>
+    </tr>
+    <tbody>
+      {% endfor %}
+      {% endif %}
+</table>
+</div>
+
+
+
+<script>
+let table = document.querySelector(".table");
+let btn   = document.querySelector(".download");
+btn.addEventListener('click', () => {
+  html2pdf().from(table).save()
+})
+</script>
+{% endblock maincenter %}

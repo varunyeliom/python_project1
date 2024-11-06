@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h3 class="text-center"><b>CHECK ATTENDANCE</b></h3>
+{% endblock header %}
+
+{% block maincenter %}
+
+<div style="margin-top: 50px;">
+  
+  <form  class="input-group mb-3" action="/regbox/" method = "POST">
+    <span class="input-group-text" id="regbox">REGISTER NUMBER</span>
+
+    {% csrf_token %}
+    <input autocomplete="off"  type="text" placeholder="eg: 20ABCD2020" class="form-control" aria-label="Sizing example input" name="box"  aria-describedby="inputGroup-sizing-default">
+  
+  <button  type="submit" class="btn btn-outline-dark" onclick="percentage()">SEARCH</button>
+
+  </form>
+
+</div>
+{% if match1 %}
+{% for eachmatch1 in match1 %}
+<div>
+  <div>
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr>
+        <td><u>STUDENT ID</u></td>
+          <td><b>{{eachmatch1.id}}</b></td>
+        </tr>
+  
+        <tr>
+          <td><u>STUDENT NAME</u></td>
+          <td><b>{{eachmatch1.fullname}}</b></td>
+        </tr>
+  
+        <tr>
+          <td><u>REGISTER NO</u></td>
+          <td><b>{{eachmatch1.regnum}}</b></td>
+        </tr>
+  
+        <tr>
+          <td><u>COURSE</u></td>
+          <td><b>{{eachmatch1.courseandyear}}</b></td>
+        </tr>
+  
+      </tbody>
+      </table>
+  </div>
+
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">SUBJECT</th>
+          <th  scope="col">CLASSES ATTENDED</th>
+          <th  scope="col">CLASSES HELD</th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr>
+          <td>{{eachmatch1.sem1sub1}}</td>
+          <td id="numerator1">{{eachmatch1.sem1sub1att}}</td>
+          <td id="denominator1">{{eachmatch1.sem1sub1held}}</td>
+          <td id="val1"></td>
+        </tr>
+        <tr>
+          <td>{{eachmatch1.sem1sub2}}</td>
+          <td id="numerator">{{eachmatch1.sem1sub2att}}</td>
+          <td id="denominator">{{eachmatch1.sem1sub2held}}</td>
+          <td id="val"></td>
+        </tr>
+        <tr>
+          <td>{{eachmatch1.sem1sub3}}</td>
+          <td id="numerator">{{eachmatch1.sem1sub3att}}</td>
+          <td id="denominator">{{eachmatch1.sem1sub3held}}</td>
+          <td id="val"></td>
+        </tr>
+        <tr>
+          <td>{{eachmatch1.sem1sub4}}</td>
+          <td id="numerator">{{eachmatch1.sem1sub4att}}</td>
+          <td id="denominator">{{eachmatch1.sem1sub4held}}</td>
+          <td id="val"></td>
+        </tr>
+        <tr>
+          <td>{{eachmatch1.sem2sub1}}</td>
+          <td id="numerator">{{eachmatch1.sem2sub1att}}</td>
+          <td id="denominator">{{eachmatch1.sem2sub1held}}</td>
+          <td id="val"></td>
+        </tr>
+        <tr>
+          <td>{{eachmatch1.sem2sub2}}</td>
+          <td id="numerator">{{eachmatch1.sem2sub2att}}</td>
+          <td id="denominator">{{eachmatch1.sem2sub2held}}</td>
+          <td id="val"></td>
+        </tr>
+        <tr>
+          <td>{{eachmatch1.sem2sub3}}</td>
+          <td id="numerator">{{eachmatch1.sem2sub3att}}</td>
+          <td id="denominator">{{eachmatch1.sem2sub3held}}</td>
+          <td id="val"></td>
+        </tr>
+        <tr>
+          <td>{{eachmatch1.sem2sub4}}</td>
+          <td id="numerator">{{eachmatch1.sem2sub4att}}</td>
+          <td id="denominator">{{eachmatch1.sem2sub4held}}</td>
+          <td id="val"></td>
+        </tr>
+      </tbody>
+      </table>
+  </div>
+  
+{% endfor %}
+{% endif %}
+</div>
+
+<script type="text/javascript">
+function percentage() {
+var numerator = int.document.getElementById("numerator1").value;
+var denominator = int.document.getElementById("denominator1").value;
+document.getElementById("val1").value = (numerator/denominator)*100;
+}
+</script>
+
+{% endblock maincenter %}

@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h3 class="text-center">STUDENT ATTENDANCE</h3>
+{% endblock header %}
+
+
+{% block maincenter %}
+<p class="text-center"> <u>Mark Attendance</u></p>
+
+<div>
+    
+
+</div>
+
+<div>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">STUDENT ID</th>
+            <th scope="col">FULLNAME</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        
+        {% if bca1 %}
+        {% for onebca1 in bca1 %}
+        <tbody>
+          <tr>
+            <th scope="row">{{onebca1.id}}</th>
+            <td>{{onebca1.fullname}}</td>
+            <td><a href="{% url 's1s2present' onebca1.id %}" class="btn btn-sm btn-outline-success">PRESENT</a></td>
+            <td><a href="{% url 's1s2absent' onebca1.id %}" class="btn btn-sm btn-outline-danger">ABSENT</a></td>
+          </tr>
+        </tbody>
+        
+            {% endfor %}
+
+            {% elif bca2 %}
+            {% for onebca2 in bca2 %}
+        <tbody>
+          <tr>
+            <th scope="row">{{onebca2.id}}</th>
+            <td>{{onebca2.fullname}}</td>
+            <td><a href="{% url 's1s2present' onebca2.id %}" class="btn btn-sm btn-outline-success">PRESENT</a></td>
+            <td><a href="{% url 's1s2absent' onebca2.id %}" class="btn btn-sm btn-outline-danger">ABSENT</a></td>
+          </tr>
+        </tbody>
+        
+            {% endfor %}
+
+            {% elif bca3 %}
+            {% for onebca3 in bca3 %}
+        <tbody>
+          <tr>
+            <th scope="row">{{onebca3.id}}</th>
+            <td>{{onebca3.fullname}}</td>
+            <td><a href="{% url 's1s2present' onebca3.id %}" class="btn btn-sm btn-outline-success">PRESENT</a></td>
+            <td><a href="{% url 's1s2absent' onebca3.id %}" class="btn btn-sm btn-outline-danger">ABSENT</a></td>
+          </tr>
+        </tbody>
+        
+            {% endfor %}
+
+            {% elif bcom1 %}
+            {% for onebcom1 in bcom1 %}
+        <tbody>
+          <tr>
+            <th scope="row">{{onebcom1.id}}</th>
+            <td>{{onebcom1.fullname}}</td>
+            <td><a href="{% url 's1s2present' onebcom1.id %}" class="btn btn-sm btn-outline-success">PRESENT</a></td>
+            <td><a href="{% url 's1s2absent' onebcom1.id %}" class="btn btn-sm btn-outline-danger">ABSENT</a></td>
+          </tr>
+        </tbody>
+        
+            {% endfor %}
+
+            {% elif bcom2 %}
+            {% for onebcom2 in bcom2 %}
+        <tbody>
+          <tr>
+            <th scope="row">{{onebcom2.id}}</th>
+            <td>{{onebcom2.fullname}}</td>
+            <td><a href="{% url 's1s2present' onebcom2.id %}" class="btn btn-sm btn-outline-success">PRESENT</a></td>
+            <td><a href="{% url 's1s2absent' onebcom2.id %}" class="btn btn-sm btn-outline-danger">ABSENT</a></td>
+          </tr>
+        </tbody>
+        
+            {% endfor %}
+
+            {% elif bcom3 %}
+            {% for onebcom3 in bcom3 %}
+        <tbody>
+          <tr>
+            <th scope="row">{{onebcom3.id}}</th>
+            <td>{{onebcom3.fullname}}</td>
+            <td><a href="{% url 's1s2present' onebcom3.id %}" class="btn btn-sm btn-outline-success">PRESENT</a></td>
+            <td><a href="{% url 's1s2absent' onebcom3.id %}" class="btn btn-sm btn-outline-danger">ABSENT</a></td>
+          </tr>
+        </tbody>
+        
+            {% endfor %}
+
+            {% elif bba1 %}
+            {% for onebba1 in bba1 %}
+        <tbody>
+          <tr>
+            <th scope="row">{{onebba1.id}}</th>
+            <td>{{onebba1.fullname}}</td>
+            <td><a href="{% url 's1s2present' onebba1.id %}" class="btn btn-sm btn-outline-success">PRESENT</a></td>
+            <td><a href="{% url 's1s2absent' onebba1.id %}" class="btn btn-sm btn-outline-danger">ABSENT</a></td>
+          </tr>
+        </tbody>
+        
+            {% endfor %}
+
+            {% elif bba2 %}
+            {% for onebba2 in bba2 %}
+        <tbody>
+          <tr>
+            <th scope="row">{{onebba2.id}}</th>
+            <td>{{onebba2.fullname}}</td>
+            <td><a href="{% url 's1s2present' onebba2.id %}" class="btn btn-sm btn-outline-success">PRESENT</a></td>
+            <td><a href="{% url 's1s2absent' onebba2.id %}" class="btn btn-sm btn-outline-danger">ABSENT</a></td>
+          </tr>
+        </tbody>
+        
+            {% endfor %}
+
+            {% elif bba3 %}
+            {% for onebba3 in bba3 %}
+        <tbody>
+          <tr>
+            <th scope="row">{{onebba3.id}}</th>
+            <td>{{onebba3.fullname}}</td>
+            <td><a href="{% url 's1s2present' onebba3.id %}" class="btn btn-sm btn-outline-success">PRESENT</a></td>
+            <td><a href="{% url 's1s2absent' onebba3.id %}" class="btn btn-sm btn-outline-danger">ABSENT</a></td>
+          </tr>
+        </tbody>
+        
+            {% endfor %}
+            {% endif %}
+
+
+      </table>
+
+</div>
+
+{% endblock maincenter %}

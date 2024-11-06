@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block header %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"        
+integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</script>
+{% endblock header %}
+
+
+{% block maincenter %}
+
+<div class="table"> 
+  <h3 class="text-dark text-center">STAFF DATABASE</h3>
+<table class="table" style="margin-top: 50px;">
+  <thead>
+    <tr>
+      <th scope="col">STAFF NAME</th>
+      <th scope="col">STAFF ID</th>
+      <th scope="col">PHONE NUMBER</th>
+      <th scope="col">EMAIL ADDRESS</th>
+      <th scope="col">ASSIGNED SUBJECT</th>
+      <th scope="col">ASSIGNED SUBJECT</th>
+      <th scope="col">ASSIGNED SUBJECT</th>
+      <th scope="col">ASSIGNED SUBJECT</th>
+    </tr>
+  </thead>
+  {% if allstaff %}
+  {% for eachstaff in allstaff %}
+  <tbody>
+    <tr>
+      <td>{{eachstaff.name}}</td>
+      <td>{{eachstaff.staffid}}</td>
+      <td>{{eachstaff.phone}}</td>
+      <td>{{eachstaff.email}}</td>
+      <td>{{eachstaff.assignedsub1}}</td>
+      <td>{{eachstaff.assignedsub2}}</td>
+      <td>{{eachstaff.assignedsub3}}</td>
+      <td>{{eachstaff.assignedsub4}}</td>
+      <td><a href="{% url 'deletefaculty' eachstaff.id %}" class="btn btn-sm btn-danger">delete</a></td>
+    </tr>
+    <tbody>
+      {% endfor %}
+      {% endif %}
+</table>
+</div>
+
+<button class="btn download text-light" style="background-color: rgba(72, 112, 104, 0.922);">save as .pdf</button>
+<button class="btn text-light" style="background-color: rgba(72, 112, 104, 0.922);"><a class="text-light" href="{% url 'facultydbexcel' %}">open in excel</a></button>
+
+<script>
+let table = document.querySelector(".table");
+let btn   = document.querySelector(".download");
+btn.addEventListener('click', () => {
+  html2pdf().from(table).save()
+})
+</script>
+{% endblock maincenter %}

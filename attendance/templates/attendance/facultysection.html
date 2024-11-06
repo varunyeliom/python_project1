@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1 class="text-center justify-content-between bg-dark text-light" style="margin-top: 20px; margin-left: 20px; margin-right: 40px;">FACULTY SECTION</h1>
+{% endblock header %}
+
+
+{% block maincenter %}
+
+{% if user %}
+{% for eachuser in user %}
+
+<div style="padding: 40px; background-color: rgb(200, 175, 49); margin-top: 180px; margin-right: 150px; margin-left: 370px;">
+    <div id="d1" class="text-dark" style="width: 500px; height: 40px; font-size: 30px; text-align: center;"> <a class="text-dark" href="{% url 'selectclass' eachuser.id %}">MARK ATTENDANCE</a> </div>
+</div>
+
+<div style="padding: 40px; background-color: rgb(200, 175, 49); margin-top: 40px; margin-right: 320px; margin-left: 200px;">
+    <div id="d1" class="text-dark" style="width: 500px; height: 40px; font-size: 30px; text-align: center;"> <a class="text-dark" href="{% url 'managesubjectspage' %}">MANAGE SUBJECTS</a> </div>
+</div>
+
+<div style="padding: 40px; background-color: rgb(200, 175, 49); margin-top: 40px;margin-right: 490px; margin-left: 30px;">
+    <div id="d1" class="text-dark" style="width: 500px; height: 40px; font-size: 30px; text-align: center;"> <a class="text-dark" href="{% url 'datewiserec' %}">VIEW RECORDS</a> </div>
+</div>
+
+
+<style>
+
+#flex {
+    display: flex;
+}
+#d1 {
+    background-color: rgb(255, 255, 255);
+}
+
+</style>
+{% endfor %}
+{% endif %}
+
+{% endblock maincenter %}

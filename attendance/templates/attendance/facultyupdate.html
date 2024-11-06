@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h3 class="text-center">UPDATE DETAILS</h3>
+{% endblock header %}
+
+
+{% block maincenter %}
+
+    <form class="p-5 border" action="/doupdatefaculty/{{singlestaff.id}}/"method = "POST">
+      {% csrf_token %}
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="staff id" name ="staffid" required value="{{singlestaff.staffid}}" readonly>
+        <label for="floatingInput">STAFF ID</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="fullname" name ="fullname" required value="{{singlestaff.name}}">
+        <label for="floatingInput">FULLNAME</label>
+      </div>
+
+
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="phone" name ="phone" required value="{{singlestaff.phone}}">
+        <label for="floatingInput">PHONE</label>
+      </div>
+      <p class="text-danger">{{message2}}</p>
+
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="name@gmail.com" name="email" required value="{{singlestaff.email}}">
+        <label for="floatingInput">EMAIL</label>
+      </div>
+      <p class="text-danger">{{message3}}</p>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Subject1" name="assignedsub1" required value="{{singlestaff.assignedsub1}}">
+        <label for="floatingInput">Assign Subject</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Subject2" name="assignedsub2" value="{{singlestaff.assignedsub2}}">
+        <label for="floatingInput">Assign Subject</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Subject3" name="assignedsub3" value="{{singlestaff.assignedsub3}}">
+        <label for="floatingInput">Assign Subject</label>
+      </div>      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Subject4" name="assignedsub4" value="{{singlestaff.assignedsub4}}">
+        <label for="floatingInput">Assign Subject</label>
+      </div>
+
+      <div class="form-floating">
+        <input type="PASSWORD" class="form-control" id="floatingPassword" placeholder="password" name ="password" required value="{{singlestaff.password}}">
+        <label for="floatingPassword">PASSWORD</label>
+      </div>
+
+      <div class="m-2">
+        <button type="submit" class = "btn btn-success">UPDATE</button>
+      </div>
+    </form>
+        
+    {% endblock maincenter %}

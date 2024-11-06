@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block maincenter %}
+<div class="text-center p-5 border rounded rounded-4" style="margin-top: 30px;">
+    <b><h5 class="text-decoration-underline">Login Page</h5></b>
+
+    <form class="text-start" action = "/login/" method = "POST">
+        {% csrf_token %}
+       <div class="mb-3">
+           <label for="exampleInputPassword1" class="form-label">Staff ID</label>
+           <input autocomplete="off" type="text" class="form-control" id="staffid" name ="staffid" required>
+         </div>
+         <div class="mb-3">
+           <label for="exampleInputPassword1" class="form-label">Password</label>
+           <input autocomplete="off" type="text" class="form-control" id="password" name = "password" required>
+         </div>
+       <button type="submit" class="btn btn-secondary">Login</button>
+       <p class="text-danger">{{msg}}</p>
+
+     </form>
+</div>
+{% endblock maincenter %}

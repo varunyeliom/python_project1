@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h3 class="text-center">ADD SUBJECTS</h3>
+{% endblock header %}
+
+
+{% block maincenter %}
+
+    <form class="p-5 border" action="/addsubjects/" method = "POST">
+      {% csrf_token %}
+       
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="courseandyear" name ="courseandyear" required value="{{singleidsubs.courseandyear}}" readonly>
+        <label for="floatingInput">COURSE+YEAR</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="sem1sub1" name ="sem1sub1" required value="{{singleidsubs.sem1sub1}}">
+        <label for="floatingInput">SEM1SUB1</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="sem1sub2" name ="sem1sub2" required value="{{singleidsubs.sem1sub2}}">
+        <label for="floatingInput">SEM1SUB2</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="sem1sub3" name ="sem1sub3" required value="{{singleidsubs.sem1sub3}}">
+        <label for="floatingInput">SEM1SUB3</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="sem1sub4" name ="sem1sub4" required value="{{singleidsubs.sem1sub4}}">
+        <label for="floatingInput">SEM1SUB4</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="sem2sub1" name ="sem2sub1" required value="{{singleidsubs.sem2sub1}}">
+        <label for="floatingInput">SEM2SUB1</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="sem2sub2" name ="sem2sub2" required value="{{singleidsubs.sem2sub2}}">
+        <label for="floatingInput">SEM2SUB2</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="sem2sub3" name ="sem2sub3" required value="{{singleidsubs.sem2sub3}}">
+        <label for="floatingInput">SEM2SUB3</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="sem2sub4" name ="sem2sub4" required value="{{singleidsubs.sem2sub4}}">
+        <label for="floatingInput">SEM2SUB4</label>
+      </div>
+
+      <div class="m-2">
+        <button type="submit" class = "btn btn-success">Register</button>
+      </div>
+    </form>
+        
+    {% endblock maincenter %}

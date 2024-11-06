@@ -1,0 +1,304 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h3 class="text-center">UPDATE SUBJECTS</h3>
+{% endblock header %}
+
+
+{% block maincenter %}
+
+<div style="margin-top: 45px;">
+  <div class="d-flex justify-content-between bg-dark">
+    
+    
+    <ul class="nav">
+
+        <div class="dropdown" style="margin-right: 15px;">
+
+            <button class="btn btn-secondary bg-dark btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+               BCA
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item active" href="{% url 'viewbca1sub' %}">1ST YEAR</a></li>
+              <li><a class="dropdown-item" href="{% url 'viewbca2sub' %}">2ND YEAR</a></li>
+              <li><a class="dropdown-item" href="{% url 'viewbca3sub' %}">3RD YEAR</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown" style="margin-right: 15px;">
+            <button class="btn btn-secondary bg-dark btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+               BCOM
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item active" href="{% url 'viewbcom1sub' %}">1ST YEAR</a></li>
+              <li><a class="dropdown-item" href="{% url 'viewbcom2sub' %}">2ND YEAR</a></li>
+              <li><a class="dropdown-item" href="{% url 'viewbcom3sub' %}">3RD YEAR</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown" style="margin-right: 15px;">
+            <button class="btn btn-secondary bg-dark btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+               BA
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item active" href="#">1ST YEAR</a></li>
+              <li><a class="dropdown-item" href="#">2ND YEAR</a></li>
+              <li><a class="dropdown-item" href="#">3RD YEAR</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown" style="margin-right: 15px;">
+            <button class="btn btn-secondary bg-dark btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+               BBA
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item active" href="{% url 'viewbba1sub' %}">1ST YEAR</a></li>
+              <li><a class="dropdown-item" href="{% url 'viewbba2sub' %}">2ND YEAR</a></li>
+              <li><a class="dropdown-item" href="{% url 'viewbba3sub' %}">3RD YEAR</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown" style="margin-right: 15px;">
+            <button class="btn btn-secondary bg-dark btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+               BSC
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark bg-dark">
+              <li><a class="dropdown-item active" href="#">1ST YEAR</a></li>
+              <li><a class="dropdown-item" href="#">2ND YEAR</a></li>
+              <li><a class="dropdown-item" href="#">3RD YEAR</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+          </div>
+      
+
+        
+      </ul>
+
+
+
+
+      <ul class="nav justify-content-end">
+
+
+
+        <li class="nav-item">
+            <a class="nav-link" href="#">Other Dept</a>
+          </li>
+        
+
+      </ul>
+
+
+</div>
+</div>
+
+
+<table class="table" style="margin-top: 15px;">
+    <thead>
+      <tr>
+        <th scope="col">COURSE+YEAR</th>
+        <th scope="col">SEM1SUB1</th>
+        <th scope="col">SEM1SUB2</th>
+        <th scope="col">SEM1SUB3</th>
+        <th scope="col">SEM1SUB4</th>
+        <th scope="col">SEM2SUB1</th>
+        <th scope="col">SEM2SUB2</th>
+        <th scope="col">SEM2SUB3</th>
+        <th scope="col">SEM2SUB4</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+        
+    {% if bca1 %}
+    {% for allbca1 in bca1 %}
+      <tr>  
+        <th ><u>{{allbca1.courseandyear}}</u></th>
+        <td>{{allbca1.sem1sub1}}</td>
+        <td>{{allbca1.sem1sub2}}</td>
+        <td>{{allbca1.sem1sub3}}</td>
+        <td>{{allbca1.sem1sub4}}</td>
+        <td>{{allbca1.sem2sub1}}</td>
+        <td>{{allbca1.sem2sub2}}</td>
+        <td>{{allbca1.sem2sub3}}</td>
+        <td>{{allbca1.sem2sub4}}</td>
+        <td><a href="{% url 'updatesubjects' allbca1.id %}" class="btn btn-sm btn-outline-success">UPDATE</a></td>
+
+        
+        {% endfor %}
+        {% endif %}
+      </tr>
+
+  
+      {% if bca2 %}
+    {% for allbca2 in bca2 %}
+      <tr>  
+        <th scope="row"><u>{{allbca2.courseandyear}}</u></th>
+        <td>{{allbca2.sem1sub1}}</td>
+        <td>{{allbca2.sem1sub2}}</td>
+        <td>{{allbca2.sem1sub3}}</td>
+        <td>{{allbca2.sem1sub4}}</td>
+        <td>{{allbca2.sem2sub1}}</td>
+        <td>{{allbca2.sem2sub2}}</td>
+        <td>{{allbca2.sem2sub3}}</td>
+        <td>{{allbca2.sem2sub4}}</td>
+        <td><a href="{% url 'updatesubjects' allbca2.id %}" class="btn btn-sm btn-outline-success">UPDATE</a></td>
+
+        
+        {% endfor %}
+        {% endif %}
+      </tr>
+
+      {% if bca3 %}
+      {% for allbca3 in bca3 %}
+        <tr>  
+          <th scope="row"><u>{{allbca3.courseandyear}}</u></th>
+          <td>{{allbca3.sem1sub1}}</td>
+          <td>{{allbca3.sem1sub2}}</td>
+          <td>{{allbca3.sem1sub3}}</td>
+          <td>{{allbca3.sem1sub4}}</td>
+          <td>{{allbca3.sem2sub1}}</td>
+          <td>{{allbca3.sem2sub2}}</td>
+          <td>{{allbca3.sem2sub3}}</td>
+          <td>{{allbca3.sem2sub4}}</td>
+          <td><a href="{% url 'updatesubjects' allbca3.id %}" class="btn btn-sm btn-outline-success">UPDATE</a></td>
+
+          
+          {% endfor %}
+          {% endif %}
+        </tr>
+
+        {% if bcom1 %}
+    {% for allbcom1 in bcom1 %}
+      <tr>  
+        <th scope="row"><u>{{allbcom1.courseandyear}}</u></th>
+        <td>{{allbcom1.sem1sub1}}</td>
+        <td>{{allbcom1.sem1sub2}}</td>
+        <td>{{allbcom1.sem1sub3}}</td>
+        <td>{{allbcom1.sem1sub4}}</td>
+        <td>{{allbcom1.sem2sub1}}</td>
+        <td>{{allbcom1.sem2sub2}}</td>
+        <td>{{allbcom1.sem2sub3}}</td>
+        <td>{{allbcom1.sem2sub4}}</td>
+        <td><a href="{% url 'updatesubjects' allbcom1.id %}" class="btn btn-sm btn-outline-success">UPDATE</a></td>
+
+        
+        {% endfor %}
+        {% endif %}
+      </tr>
+
+      {% if bcom2 %}
+    {% for allbcom2 in bcom2 %}
+      <tr>  
+        <th scope="row"><u>{{allbcom2.courseandyear}}</u></th>
+        <td>{{allbcom2.sem1sub1}}</td>
+        <td>{{allbcom2.sem1sub2}}</td>
+        <td>{{allbcom2.sem1sub3}}</td>
+        <td>{{allbcom2.sem1sub4}}</td>
+        <td>{{allbcom2.sem2sub1}}</td>
+        <td>{{allbcom2.sem2sub2}}</td>
+        <td>{{allbcom2.sem2sub3}}</td>
+        <td>{{allbcom2.sem2sub4}}</td>
+        <td><a href="{% url 'updatesubjects' allbcom2.id %}" class="btn btn-sm btn-outline-success">UPDATE</a></td>
+
+        
+        {% endfor %}
+        {% endif %}
+      </tr>
+
+      {% if bcom3 %}
+    {% for allbcom3 in bcom3 %}
+      <tr>  
+        <th scope="row"><u>{{allbcom3.courseandyear}}</u></th>
+        <td>{{allbcom3.sem1sub1}}</td>
+        <td>{{allbcom3.sem1sub2}}</td>
+        <td>{{allbcom3.sem1sub3}}</td>
+        <td>{{allbcom3.sem1sub4}}</td>
+        <td>{{allbcom3.sem2sub1}}</td>
+        <td>{{allbcom3.sem2sub2}}</td>
+        <td>{{allbcom3.sem2sub3}}</td>
+        <td>{{allbcom3.sem2sub4}}</td>
+        <td><a href="{% url 'updatesubjects' allbcom3.id %}" class="btn btn-sm btn-outline-success">UPDATE</a></td>
+
+        
+        {% endfor %}
+        {% endif %}
+      </tr>
+
+      {% if bba1 %}
+    {% for allbba1 in bba1 %}
+      <tr>  
+        <th scope="row"><u>{{allbba1.courseandyear}}</u></th>
+        <td>{{allbba1.sem1sub1}}</td>
+        <td>{{allbba1.sem1sub2}}</td>
+        <td>{{allbba1.sem1sub3}}</td>
+        <td>{{allbba1.sem1sub4}}</td>
+        <td>{{allbba1.sem2sub1}}</td>
+        <td>{{allbba1.sem2sub2}}</td>
+        <td>{{allbba1.sem2sub3}}</td>
+        <td>{{allbba1.sem2sub4}}</td>
+        <td><a href="{% url 'updatesubjects' allbba1.id %}" class="btn btn-sm btn-outline-success">UPDATE</a></td>
+
+        
+        {% endfor %}
+        {% endif %}
+      </tr>
+      
+      {% if bba2 %}
+    {% for allbba2 in bba2 %}
+     <tr>  
+        <th scope="row"><u>{{allbba2.courseandyear}}</u></th>
+        <td>{{allbba2.sem1sub1}}</td>
+        <td>{{allbba2.sem1sub2}}</td>
+        <td>{{allbba2.sem1sub3}}</td>
+        <td>{{allbba2.sem1sub4}}</td>
+        <td>{{allbba2.sem2sub1}}</td>
+        <td>{{allbba2.sem2sub2}}</td>
+        <td>{{allbba2.sem2sub3}}</td>
+        <td>{{allbba2.sem2sub4}}</td>
+        <td><a href="{% url 'updatesubjects' allbba2.id %}" class="btn btn-sm btn-outline-success">UPDATE</a></td>
+
+        
+        {% endfor %}
+        {% endif %}
+     </tr>
+
+      {% if bba3 %}
+    {% for allbba3 in bba3 %}
+      <tr>  
+        <th scope="row"><u>{{allbba3.courseandyear}}</u></th>
+        <td>{{allbba3.sem1sub1}}</td>
+        <td>{{allbba3.sem1sub2}}</td>
+        <td>{{allbba3.sem1sub3}}</td>
+        <td>{{allbba3.sem1sub4}}</td>
+        <td>{{allbba3.sem2sub1}}</td>
+        <td>{{allbba3.sem2sub2}}</td>
+        <td>{{allbba3.sem2sub3}}</td>
+        <td>{{allbba3.sem2sub4}}</td>
+        <td><a href="{% url 'updatesubjects' allbba3.id %}" class="btn btn-sm btn-outline-success">UPDATE</a></td>
+        
+        {% endfor %}
+        {% endif %}
+      </tr>
+
+     
+      <tbody>
+  </table>
+
+
+
+  
+
+
+{% endblock maincenter %}

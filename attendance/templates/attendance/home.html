@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1 class="text-center justify-content-between bg-dark text-light" style="margin-top: 20px; margin-left: 20px; margin-right: 40px;">ATTENDANCE MANAGEMENT</h1>
+{% endblock header %}
+
+
+{% block maincenter %}
+
+<div id="flex">
+
+
+    <div id="div2" class="text-center bg-dark" style="width: 200px;"><h4>a</h4></div>
+
+
+    <div id="div3" class="text-center" style="width: 700px;"><h4></h4></div>
+
+
+    <div id="div4" class="text-center bg-dark" style="width: 200px;"><h4>a</h4></div>
+
+
+</div>
+
+<div style="padding: 40px; background-color: rgb(200, 175, 49); margin-top: 180px; margin-right: 400px; margin-left: 30px;">
+    <div id="d1" class="text-dark" style="width: 500px; height: 40px; font-size: 30px; text-align: center;"> <a class="text-dark" href="#">Admin Section</a> </div>
+</div>
+
+<div style="padding: 40px; background-color: rgb(200, 175, 49); margin-top: 40px; margin-right: 130px; margin-left: 300px;">
+    <div id="d1" class="text-dark" style="width: 500px; height: 40px; font-size: 30px; text-align: center;"> <a class="text-dark" href="{% url 'facultylogin' %}">Faculty Section</a> </div>
+</div>
+
+<div style="padding: 40px; background-color: rgb(200, 175, 49); margin-top: 40px;margin-right: 400px; margin-left: 30px;">
+    <div id="d1" class="text-dark" style="width: 500px; height: 40px; font-size: 30px; text-align: center;"> <a class="text-dark" href="{% url 'regbox' %}">Check Attendance</a> </div>
+</div>
+
+<div style="padding: 40px; background-color: rgb(200, 175, 49); margin-top: 40px; margin-right: 130px; margin-left: 300px;">
+    <div id="d1" class="text-dark" style="width: 500px; height: 40px; font-size: 30px; text-align: center;"> <a
+        class="text-dark" href="#">University Page</a></div>
+</div>
+<style>
+
+#flex {
+    display: flex;
+}
+#d1 {
+    background-color: rgb(255, 255, 255);
+    
+}
+
+</style>
+
+{% endblock maincenter %}

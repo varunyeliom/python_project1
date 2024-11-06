@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h3 class="text-center"><u>ATTENDANCE RECORDS</u></h3>
+{% endblock header %}
+
+
+{% block maincenter %}
+
+
+<table class="table" style="margin-top: 50px;">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">DATE</th>
+      <th scope="col">SUBJECT</th>
+      <th scope="col">STATUS</th>
+      <th scope="col">NAME</th>
+      <th scope="col">REG NO.</th>
+      <th scope="col">COURSE</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+{% if allstudents %}
+  {% for eachstudent in allstudents %}
+  <tbody>
+    <tr>
+      <th scope="row">{{eachstudent.id}}</th>
+      <td>{{eachstudent.copydate}}</td>
+      <td>{{eachstudent.copysub}}</td>
+      <td class="text-dark"><b>{{eachstudent.copystatus}}</b></td>
+      <td>{{eachstudent.copyname}}</td>
+      <td>{{eachstudent.copyregnum}}</td>
+      <td>{{eachstudent.copycourse}}</td>
+      <td><a href="{% url 'deleterec' eachstudent.id %}" class="btn btn-sm btn-danger">delete</a></td>
+    <tbody>
+  {% endfor %}
+{% endif %}
+</table>
+{% endblock maincenter %}
