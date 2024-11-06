@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-dark" style="height: 80px;">
+      <h3 class="text-light"  style="margin-left: 400px; font-size: 55px;">OXFORD UNIVERSITY</h3>
+    </nav>
+
+      {% include "navbar.html" %}
+
+      <div class="container">
+      {% block header %}
+      {% endblock header %}
+
+
+      {% block maincenter %}
+      {% endblock maincenter %}
+      </div>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+
+    <style>
+      @import url('http://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+    
+    *,
+    *:after,
+    *:before{
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    
+    }
+    :active,
+    :hover,
+    :focus{
+        outline: 0 !important;
+        outline-offset: 0;
+    }
+    :root{
+        --primary-color:black;
+        --secondary-color:#635b59;
+        --third-color:#f98169;
+        --white-color:#fff;
+        --text-colour: #555;
+        --text-gray:#999;
+        --black-color:#000;
+        --primary-font:'Roboto',sans-serif;
+        --secondary-font:'Quicksand',sans-serif;
+    
+    }
+    .heading {
+        padding-bottom: 0rem;
+        text-align: bottom;
+        font-size: 3.5rem;
+        color: black;
+    }
+    
+    .heading span {
+        position: relative;
+        z-index: 0;
+    }
+    .heading span::before {
+        content: '';
+        position: absolute;
+        bottom: 0.5rem;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: var(--secondary-color);
+        z-index: -1;
+        clip-path: polygon(0 90%, 100% 80%, 100% 100%, 0% 100%);
+    }
+    
+    html{
+        scroll-behavior: smooth;
+    }
+    ::-webkit-scrollbar{
+        width: 0.625rem;
+    }
+    ::-webkit-scrollbar-track{
+        background: var(--white-color);
+    }
+    ::-webkit-scrollbar-thumb{
+        background: var(--primary-color);
+    
+    }
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+    
+    
+    .nav-link{
+        font-size: 1.0000rem;
+        font-weight: 600;
+        text-transform:capitalize;
+        color:var(--primary-color);
+        letter-spacing: 1px;
+    }
+    
+    .navigation-wrap .main-btn{
+        padding:0.3125rem 1.4375rem;
+        box-shadow: none;
+        margin-left: 0.625rem;
+    }
+    
+    .footer{
+        background: var(--primary-color);
+    }
+    
+    .footer .footer-link{
+        font-size:1rem;
+        color: var(--white-color);
+        padding: 0 1.875rem;
+    }
+    
+    .footer-link a:hover{
+        color: var(--white-color) !important;
+    }
+    
+    .footer a i{
+        font-size: 1.5rem;
+        color: var(--white-color);
+        padding: 0 1rem;
+    }
+    
+    .footer {
+        
+        background: var(--primary-color);
+        padding-bottom: 2rem;
+    }
+    
+    .footer .box-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 0.4fr));
+        gap: 1.5rem;
+    }
+    
+    .footer .box-container .box h3 {
+        font-size: 1.6rem;
+        padding: 0rem 0;
+        color: var(--white-color);
+    }
+    
+    .footer .box-container .box a {
+        display: block;
+        font-size: 1rem;
+        padding: 0rem;
+        color: var(--white-color);
+    }
+    
+    .footer .box-container .box a i{
+        padding-right: 0rem;
+        color: var(--white-color);
+    }
+    
+    .footer .box-container .box a:hover i{
+        padding-right: 0rem;
+        color: var(--white-color);
+    }
+    
+    .footer .credit {
+        text-align: center;
+        padding: 1.5rem;
+        padding-top: 2.5rem;
+        margin-top: 2rem;
+        border-top: var(--white-color);
+        font-size: 2rem;
+        color: blue;
+    }
+    
+  
+    
+
+    ::-webkit-scrollbar{
+      display: none;
+     }
+    
+
+    </style>
+     
+        <section class="footer" id="footer" style="margin-top: 300px; height: 200px;">
+       <div class="box-container">
+       <div class="box text-white" style="margin-top: 20px; margin-left: 180px;">
+       <h3 style="margin-left: 6px;">Quick links</h3>
+        <a href="{% url 'home' %}"> <i class="fas fa-arrow-right ia"></i> Home </a>
+        <a href="#"> <i class="fas fa-arrow-right ia"></i> Admin Login </a>
+        <a href="#"> <i class="fas fa-arrow-right ia"></i> University Page </a>
+            
+              </div>
+      
+      
+              <div class="box" style="margin-top: 20px; margin-left: 130px;">
+                  <h3 style="margin-left: 10px;">Contact us</h3>
+                  <a href="#"> <i class="fas fa-phone ia"></i> +91 9108902882 </a>
+                  <a href="#"> <i class="fas fa-phone ia"></i> +91 6363170207 </a>
+                  <a href="#"> <i class="fas fa-envelope ia"></i>srana@gmail.com</a>
+              </div>
+      
+              <div class="box" style="margin-top: 20px; margin-left: 90px;">
+                  <h3>Explore Us</h3>
+                  <a href="#" target="_blank"> <i class="fab fa-facebook-f ia"></i> facebook </a>
+                  <a href="#" target="_blank"> <i class="fab fa-twitter ia"></i> twitter </a>
+                  <a href="#" target="_blank"> <i class="fab fa-instagram ia"></i> instagram </a>
+              </div>
+      
+          </div>
+      
+          <div class="col-sm-12" style="background-color: black; margin-top: 35px; font-size: 20px;">
+              <div class="footer-copy">
+                  <div class="copy-right text-center pt-8 "></div>
+                  <p class="text-light text-center" style="margin-left: 10px;">&copy;oxford_univesity.  All rights reserved</p>
+              </div> 
+              </div> 
+      </section>
+  </body>
+</html>

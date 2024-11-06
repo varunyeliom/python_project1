@@ -1,0 +1,49 @@
+<div class="d-flex justify-content-between bg-light">
+    <ul class="nav">
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'home' %}">Home</a>
+      </li>
+
+
+        <div class="dropdown">
+          <button style="font: 1.07em 'Roboto',sans-serif; margin-top: 3.5px; text-transform: capitalize;" class="btn nav-item btn-secondary dropdown-toggle btn-outline-light bg-light text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          ADMIN
+          </button>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="{% url 'facultyregister' %}">NEW FACULTY</a></li>
+            <li><a class="dropdown-item" href="{% url 'facultymanage' %}">MANAGE FACULTY</a></li>
+            <li><a class="dropdown-item" href="{% url 'showallattendancedetails' %}">STUDENT DATABASE</a></li>
+            <li><a class="dropdown-item" href="{% url 'viewrec' %}">RECORDS DATABASE</a></li>
+            <li><a class="dropdown-item" href="{% url 'facultydb' %}">FACULTY DATABASE</a></li>
+            
+          </ul>
+
+        </div>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'facultylogin' %}">FACULTY</a>
+        </li>
+
+    </ul>
+
+      <ul class="nav justify-content-end">
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'myrec' %}">My Records</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'regbox'  %}">My Attendance</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'registrationpage' %}">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">Logout</a>
+        </li>
+
+      </ul>
+</div>
